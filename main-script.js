@@ -43,63 +43,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // --- Fungsi untuk Mengatur Tampilan Menu Profil ---
-    function checkLoginStatus() {
-        const currentUser = localStorage.getItem('currentUser');
-        if (currentUser) {
-            const userData = JSON.parse(currentUser);
+// Di dalam file main-script.js
+
+// CARI FUNGSI INI DAN GANTI SELURUH ISINYA
+function checkLoginStatus() {
+    const loginBtn = document.getElementById('loginBtn');
+    const profileMenu = document.getElementById('profileMenu');
+    const profileInitials = document.getElementById('profileInitials');
+    const profileUsername = document.getElementById('profileUsername');
+    const adminMenuKelola = document.getElementById('adminMenuKelola');
+    const userMenuDaftar = document.getElementById('userMenuDaftar');
+
+    const currentUserJSON = localStorage.getItem('currentUser');
+
+    if (currentUserJSON) {
+        try {
+            const userData = JSON.parse(currentUserJSON);
             if (loginBtn) loginBtn.style.display = 'none';
             if (profileMenu) profileMenu.style.display = 'block';
-            
             if (profileInitials) profileInitials.textContent = userData.username.substring(0, 1).toUpperCase();
             if (profileUsername) profileUsername.textContent = userData.username;
 
-            // Logika untuk menampilkan menu berdasarkan peran
             if (userData.role === 'admin') {
-                // Tampilkan menu untuk Admin
                 if (adminMenuKelola) adminMenuKelola.style.display = 'flex';
-                // Sembunyikan semua menu lain yang tidak relevan
                 if (userMenuDaftar) userMenuDaftar.style.display = 'none';
-                if (adminMenuProfil) adminMenuProfil.style.display = 'none';
-                if (adminMenuPengaturan) adminMenuPengaturan.style.display = 'none';
             } else {
-                // Tampilkan menu untuk User Biasa
-                if (userMenuDaftar) userMenuDaftar.style.display = 'flex';
-                // Sembunyikan semua menu lain yang tidak relevan
                 if (adminMenuKelola) adminMenuKelola.style.display = 'none';
-                if (adminMenuProfil) adminMenuProfil.style.display = 'none';
-                if (adminMenuPengaturan) adminMenuPengaturan.style.display = 'none';
+                if (userMenuDaftar) userMenuDaftar.style.display = 'flex';
             }
-        } else {
-            // Jika tidak login
+        } catch (error) {
+            console.error("Gagal membaca data login dari localStorage:", error);
             if (loginBtn) loginBtn.style.display = 'block';
             if (profileMenu) profileMenu.style.display = 'none';
         }
+    } else {
+        if (loginBtn) loginBtn.style.display = 'block';
+        if (profileMenu) profileMenu.style.display = 'none';
     }
-
-    // --- Fungsi KLIK untuk Dropdown Profil ---
-    if (profileTrigger) {
-        profileTrigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (profileDropdown) profileDropdown.classList.toggle('show');
-        });
-    }
-
-    // --- Fungsi KLIK untuk Logout ---
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            localStorage.removeItem('currentUser');
-            window.location.href = 'index.html';
-        });
-    }
-    
-    // --- Menutup Dropdown Saat Klik di Luar ---
-    document.addEventListener('click', (e) => {
-        if (profileDropdown && profileMenu && !profileMenu.contains(e.target)) {
-            profileDropdown.classList.remove('show');
-        }
-    });
-
+}
     // --- Menjalankan Pengecekan Login Saat Halaman Dimuat ---
     checkLoginStatus();
 });
