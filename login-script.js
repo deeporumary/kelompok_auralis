@@ -39,21 +39,31 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             const result = await response.json();
 
+if (result.success) {
+    showAlert(result.message, 'success');
+    
+    // **PASTIKAN BARIS INI ADA SEBELUM REDIRECT**
+    const user = { username: data.username, role: result.role };
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 1500);
+}
+
+// ... di dalam loginForm.addEventListener("submit", ...
             if (result.success) {
                 showAlert(result.message, 'success');
-                // Simpan data pengguna ke localStorage
+                
+                // **PASTIKAN BARIS INI ADA SEBELUM REDIRECT**
                 const user = { username: data.username, role: result.role };
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 
                 setTimeout(() => {
-                    // Arahkan sesuai peran
-                    if (result.role === 'admin') {
-                        window.location.href = 'index.html';
-                    } else {
-                        window.location.href = 'index.html';
-                    }
+                    window.location.href = 'index.html';
                 }, 1500);
-            } else {
+            } 
+            else {
                 showAlert(result.message, 'error');
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('loading');
