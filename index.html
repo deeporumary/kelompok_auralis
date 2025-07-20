@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NourishNet - Bersama Lawan Kelaparan</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <i class="fas fa-utensils"></i>
+                <span>NourishNet</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="about.html" class="nav-link">Tentang Kami</a>
+                <a href="program.html" class="nav-link">Program</a>
+                <a href="blog.html" class="nav-link">Edukasi</a>
+                <a href="donasi.html" class="nav-link">Donasi</a>
+                <a href="contact.html" class="nav-link">Kontak</a>
+                
+                <a href="login.html" class="nav-link btn-login" id="loginBtn">Login</a>
+                
+                <div class="profile-menu" id="profileMenu" style="display: none;">
+                    <div class="profile-trigger" id="profileTrigger">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <span id="profileInitials">U</span>
+                        </div>
+                        <span id="profileUsername">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="relawan.html" class="dropdown-item">
+                            <i class="fas fa-users"></i>
+                            <span>Daftar Relawan</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Keluar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="floating-elements">
+                <div class="floating-element" style="--delay: 0s; --duration: 6s;"></div>
+                <div class="floating-element" style="--delay: 2s; --duration: 8s;"></div>
+                <div class="floating-element" style="--delay: 4s; --duration: 7s;"></div>
+                <div class="floating-element" style="--delay: 1s; --duration: 7s;"></div>
+                <div class="floating-element" style="--delay: 3s; --duration: 5s;"></div>
+            </div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <i class="fas fa-heart"></i>
+                        <span>SDGs 2: Zero Hunger</span>
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">Bersama Lawan</span>
+                        <span class="title-line highlight">Kelaparan</span>
+                        <span class="title-line">Untuk Masa Depan</span>
+                        <span class="title-line highlight">Tanpa Lapar</span>
+                    </h1>
+                    <p class="hero-description">
+                        NourishNet adalah platform yang menghubungkan pemberi bantuan dengan komunitas rawan pangan,
+                        menyediakan edukasi gizi, dan memfasilitasi program distribusi pangan untuk mendukung
+                        SDGs 2: Zero Hunger di Indonesia.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">125K+</span>
+                            <span class="stat-label">Porsi Makanan</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15K+</span>
+                            <span class="stat-label">Penerima Manfaat</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Relawan Aktif</span>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="donasi.html" class="btn btn-primary">
+                            <i class="fas fa-heart"></i>
+                            <span>Donasi Sekarang</span>
+                            <div class="btn-shine"></div>
+                        </a>
+                        <a href="program.html" class="btn btn-outline">
+                            <i class="fas fa-users"></i>
+                            <span>Ikut Relawan</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" alt="Kegiatan NourishNet" class="hero-image">
+                        <div class="image-overlay">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<a href="#impact-section" class="scroll-indicator">
+    <div class="scroll-arrow">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</a>    </section>
+
+    <section class="impact" id="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dampak Nyata</span>
+                </div>
+                <h2>Perubahan yang Telah Kita Ciptakan</h2>
+                <p>Bersama-sama kita telah membuat dampak positif yang nyata bagi masyarakat Indonesia.</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="impact-content">
+                        <span class="impact-number" data-target="125000">0</span>
+                        <p>Porsi Makanan Bergizi Disalurkan</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="85%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="impact-content">
+                        <span class="impact-number" data-target="15000">0</span>
+                        <p>Penerima Manfaat Langsung</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="75%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="impact-content">
+                        <span class="impact-number" data-target="500">0</span>
+                        <p>Relawan Aktif Terdaftar</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="impact-content">
+                        <span class="impact-number" data-target="50">0</span>
+                        <p>Kota di Seluruh Indonesia</p>
+                        <div class="impact-progress">
+                            <div class="progress-bar" data-width="60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="programs-preview">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-rocket"></i>
+                    <span>Program Unggulan</span>
+                </div>
+                <h2>Inisiatif untuk Indonesia Bebas Kelaparan</h2>
+                <p>Berbagai program inovatif yang telah terbukti memberikan dampak nyata.</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card featured">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300" alt="Pangan Sehat Gratis">
+                        <div class="program-badge">Unggulan</div>
+                    </div>
+                    <div class="program-content">
+                        <div class="program-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Pangan Sehat Gratis</h3>
+                        <p>Distribusi makanan bergizi ke panti asuhan, kampung, dan komunitas rawan pangan di seluruh Indonesia.</p>
+                        <div class="program-stats">
+                            <div class="stat">
+                                <span class="stat-value">125K+</span>
+                                <span class="stat-label">Porsi Disalurkan</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">50+</span>
+                                <span class="stat-label">Kota</span>
+                            </div>
+                        </div>
+                        <a href="program.html" class="program-link">
+                            <span>Pelajari Lebih Lanjut</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300" alt="Urban Farming">
+                    </div>
+                    <div class="program-content">
+                        <div class="program-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Urban Farming</h3>
+                        <p>Program edukasi bercocok tanam dan gizi seimbang di sekolah-sekolah untuk masa depan berkelanjutan.</p>
+                        <a href="program.html" class="program-link">
+                            <span>Lihat Program</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300" alt="Donasi Sembako">
+                    </div>
+                    <div class="program-content">
+                        <div class="program-icon">
+                        <i class="fas fa-box-open"></i>                        
+                        </div>
+                        <h3>Donasi Sembako</h3>
+                        <p>Platform donasi online yang memudahkan masyarakat berdonasi sembako dengan sistem transparan.</p>
+                        <a href="donasi.html" class="program-link">
+                            <span>Mulai Donasi</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-bg">
+            <div class="cta-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <div class="cta-text">
+                    <h2>Mari Bergabung Mewujudkan Indonesia Bebas Kelaparan</h2>
+                    <p>Setiap kontribusi Anda, sekecil apapun, dapat membuat perbedaan besar dalam kehidupan seseorang. Bergabunglah dengan ribuan orang baik lainnya.</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="donasi.html" class="btn btn-light">
+                        <i class="fas fa-heart"></i>
+                        <span>Mulai Berdonasi</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-light">
+                        <i class="fas fa-users"></i>
+                        <span>Daftar Relawan</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="footer-bg">
+        <div class="footer-pattern"></div>
+    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section brand-section">
+                <a href="index.html" class="logo-container footer-brand">
+                    <i class="fas fa-utensils"></i>
+                    <span>NourishNet</span>
+                </a>
+                <p>Platform edukasi, advokasi, dan distribusi pangan untuk mewujudkan Indonesia bebas kelaparan melalui kolaborasi dan inovasi berkelanjutan.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/institutteknologipln" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/IT_PLN" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/itpln" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://itpln.ac.id/" target="_blank" class="social-link" aria-label="Website ITPLN"><i class="fas fa-building"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Program</h3>
+                <ul>
+                    <li><a href="program.html">Pangan Sehat Gratis</a></li>
+                    <li><a href="program.html">Urban Farming</a></li>
+                    <li><a href="program.html">Donasi Sembako</a></li>
+                    <li><a href="program.html">Bank Makanan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tentang</h3>
+                <ul>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="blog.html">Blog & Edukasi</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nourishnet.id</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+62 21 1234 5678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 NourishNet - Kelompok Auralis. Semua hak dilindungi.</p>
+                <div class="footer-links">
+                    <a href="kebijakan-privasi.html">Kebijakan Privasi</a>
+                    <a href="syarat-ketentuan.html">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="main-script.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const impactSection = document.getElementById('impact-section');
+        const impactNumbers = document.querySelectorAll('.impact-number');
+        const progressBars = document.querySelectorAll('.progress-bar');
+        
+        let countersAnimated = false;
+
+        const animateCounter = (element, target) => {
+            let currentNumber = 0;
+            const step = Math.ceil(target / 100); 
+
+            const timer = setInterval(() => {
+                currentNumber += step;
+                if (currentNumber >= target) {
+                    clearInterval(timer);
+                    element.textContent = (target >= 1000) ? (target / 1000) + 'K+' : target;
+                } else {
+                    element.textContent = (currentNumber >= 1000) ? Math.floor(currentNumber / 1000) + 'K+' : currentNumber;
+                }
+            }, 20);
+        };
+
+        const startAnimation = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !countersAnimated) {
+                    impactNumbers.forEach(number => {
+                        const target = +number.dataset.target;
+                        animateCounter(number, target);
+                    });
+                    progressBars.forEach(progressBar => {
+                        progressBar.style.width = progressBar.dataset.width;
+                    });
+                    countersAnimated = true;
+                    observer.unobserve(impactSection);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(startAnimation, { threshold: 0.5 });
+        if (impactSection) {
+            observer.observe(impactSection);
+        }
+    });
+</script>
+</body>
+</html>

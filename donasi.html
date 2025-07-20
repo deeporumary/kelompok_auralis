@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donasi - NourishNet</title>
+    <link rel="stylesheet" href="donasi.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Definisi variabel warna */
+        :root {
+            --light-gray: #f8f8f8;
+            --white: #ffffff;
+            --olive: #3d351b; /* Warna teks utama & footer */
+            --burgundy: #8B0000; /* Warna merah untuk aktif/hover */
+            --salmon: #FA8072; /* Warna border default */
+            --dark-gray: #ccc; /* Warna border input */
+            --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            line-height: 1.6;
+            color: var(--olive);
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Donation Page Specific Styles */
+        .donate-section {
+            padding: 140px 0 80px;
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+        }
+
+        .donate-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        .donation-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-medium);
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--olive);
+            margin-bottom: 24px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .form-section-title {
+            font-weight: 600;
+            color: var(--burgundy);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .amount-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .amount-btn {
+            padding: 12px;
+            border: 2px solid var(--salmon);
+            background: transparent;
+            color: var(--olive);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .amount-btn:hover,
+        .amount-btn.active {
+            background-color: var(--burgundy);
+            color: var(--white);
+            border-color: var(--burgundy);
+        }
+
+        .custom-amount input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--salmon);
+            border-radius: 10px;
+            font-size: 1rem;
+        }
+
+        .frequency-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .freq-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--salmon);
+            border-radius: 10px;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .freq-btn:hover, .freq-btn.active {
+            background-color: var(--burgundy);
+            color: var(--white);
+            border-color: var(--burgundy);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--olive);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--dark-gray);
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--burgundy);
+            color: var(--white);
+            border: 2px solid var(--burgundy);
+        }
+
+        .btn-primary:hover {
+            background-color: #a00000;
+            border-color: #a00000;
+        }
+
+        .btn-block {
+            width: 100%;
+            display: block;
+            margin-top: 20px;
+            padding: 15px 0;
+            font-size: 1.1rem;
+        }
+
+        .btn-block i {
+            margin-right: 10px;
+        }
+
+        /* Sidebar Styles */
+        .donation-sidebar .impact-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-light);
+            border: 1px solid rgba(215, 159, 144, 0.2);
+        }
+
+        .impact-card h3 {
+            font-size: 1.5rem;
+            color: var(--burgundy);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .impact-icon {
+            font-size: 1.5rem;
+            color: var(--burgundy);
+            min-width: 40px;
+            text-align: center;
+        }
+
+        .impact-text span {
+            font-weight: 700;
+            color: var(--olive);
+        }
+
+        .impact-text p {
+            font-size: 0.9rem;
+            color: rgba(61, 53, 27, 0.8);
+        }
+        
+        /* Footer Styles */
+        .footer {
+            position: relative;
+            background-color: var(--olive); /* Diubah dari --burgundy */
+            color: var(--white);
+            padding-top: 80px;
+            padding-bottom: 20px;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--white);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-info .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        .contact-info .contact-item i {
+            margin-right: 10px;
+            color: var(--salmon);
+            font-size: 1.1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .donate-container {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .amount-options {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <i class="fas fa-utensils"></i>
+                <span>NourishNet</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="about.html" class="nav-link">Tentang Kami</a>
+                <a href="program.html" class="nav-link">Program</a>
+                <a href="blog.html" class="nav-link">Edukasi</a>
+                <a href="donasi.html" class="nav-link">Donasi</a>
+                <a href="contact.html" class="nav-link">Kontak</a>
+                
+                <a href="login.html" class="nav-link btn-login" id="loginBtn">Login</a>
+                
+                <div class="profile-menu" id="profileMenu" style="display: none;">
+                    <div class="profile-trigger" id="profileTrigger">
+                        <div class="profile-avatar" id="profileAvatar">
+                            <span id="profileInitials">U</span>
+                        </div>
+                        <span id="profileUsername">User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="relawan.html" class="dropdown-item">
+                            <i class="fas fa-users"></i>
+                            <span>Daftar Relawan</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span>Keluar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="donate-section">
+            <div class="container">
+                <div class="donate-container">
+                    <div class="donation-form">
+                        <div class="form-header">
+                            <h2>Satu Donasi, Sejuta Harapan</h2>
+                        </div>
+                        <form>
+                            <div class="form-section">
+                                <h3 class="form-section-title">Pilih Nominal Donasi</h3>
+                                <div class="amount-options">
+                                    <button type="button" class="amount-btn">Rp 25.000</button>
+                                    <button type="button" class="amount-btn active">Rp 50.000</button>
+                                    <button type="button" class="amount-btn">Rp 100.000</button>
+                                    <button type="button" class="amount-btn">Rp 250.000</button>
+                                    <button type="button" class="amount-btn">Rp 500.000</button>
+                                    <button type="button" class="amount-btn">Rp 1.000.000</button>
+                                </div>
+                                <div class="custom-amount">
+                                    <input type="number" placeholder="Atau masukkan nominal lain">
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">Frekuensi Donasi</h3>
+                                <div class="frequency-options">
+                                    <button type="button" class="freq-btn active">Satu Kali</button>
+                                    <button type="button" class="freq-btn">Bulanan</button>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3 class="form-section-title">Data Diri</h3>
+                                <div class="form-group">
+                                    <label for="name">Nama Lengkap</label>
+                                    <input type="text" id="name" placeholder="Masukkan nama Anda" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Alamat Email</label>
+                                    <input type="email" id="email" placeholder="contoh@email.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Nomor Telepon</label>
+                                    <input type="tel" id="phone" placeholder="08123456789">
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-heart"></i>
+                                Lanjutkan Donasi
+                            </button>
+                        </form>
+                    </div>
+                    <div class="donation-sidebar">
+                        <div class="impact-card">
+                            <h3>Dampak Donasi Anda</h3>
+                            <div class="impact-item">
+                                <div class="impact-icon"><i class="fas fa-utensils"></i></div>
+                                <div class="impact-text">
+                                    <span>Rp 50.000</span>
+                                    <p>Menyediakan 3 porsi makanan bergizi untuk anak-anak.</p>
+                                </div>
+                            </div>
+                            <div class="impact-item">
+                                <div class="impact-icon"><i class="fas fa-seedling"></i></div>
+                                <div class="impact-text">
+                                    <span>Rp 100.000</span>
+                                    <p>Memberikan 1 paket bibit untuk program urban farming di sekolah.</p>
+                                </div>
+                            </div>
+                            <div class="impact-item">
+                                <div class="impact-icon"><i class="fas fa-box-open"></i></div>
+                                <div class="impact-text">
+                                    <span>Rp 250.000</span>
+                                    <p>Menyalurkan 1 paket sembako lengkap untuk satu keluarga.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+<footer class="footer">
+    <div class="footer-bg">
+        <div class="footer-pattern"></div>
+    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section brand-section">
+                <a href="index.html" class="logo-container footer-brand">
+                    <i class="fas fa-utensils"></i>
+                    <span>NourishNet</span>
+                </a>
+                <p>Platform edukasi, advokasi, dan distribusi pangan untuk mewujudkan Indonesia bebas kelaparan melalui kolaborasi dan inovasi berkelanjutan.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/institutteknologipln" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/IT_PLN" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/itpln" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://itpln.ac.id/" target="_blank" class="social-link" aria-label="Website ITPLN"><i class="fas fa-building"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Program</h3>
+                <ul>
+                    <li><a href="program.html">Pangan Sehat Gratis</a></li>
+                    <li><a href="program.html">Urban Farming</a></li>
+                    <li><a href="program.html">Donasi Sembako</a></li>
+                    <li><a href="program.html">Bank Makanan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tentang</h3>
+                <ul>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="blog.html">Blog & Edukasi</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nourishnet.id</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+62 21 1234 5678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 NourishNet - Kelompok Auralis. Semua hak dilindungi.</p>
+                <div class="footer-links">
+                    <a href="kebijakan-privasi.html">Kebijakan Privasi</a>
+                    <a href="syarat-ketentuan.html">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="main-script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const amountButtons = document.querySelectorAll('.amount-btn');
+            const frequencyButtons = document.querySelectorAll('.freq-btn');
+            const customAmountInput = document.querySelector('.custom-amount input');
+
+            amountButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    amountButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    customAmountInput.value = '';
+                });
+            });
+
+            customAmountInput.addEventListener('input', function() {
+                amountButtons.forEach(btn => btn.classList.remove('active'));
+            });
+
+            frequencyButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    frequencyButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontribusi SDGs 2 - NourishNet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --cream: #fff9b4;
+        --salmon: #d79f90;
+        --burgundy: #8e1913;
+        --olive: #3d351b;
+        --white: #ffffff;
+        --light-gray: #f8f9fa;
+        --dark-gray: #6c757d;
+        --gradient-primary: linear-gradient(135deg, var(--burgundy) 0%, #b91c1c 100%);
+        --shadow-light: 0 4px 20px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--olive);
+        background-color: var(--white);
+        overflow-x: hidden;
+    }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+    /* --- Navigasi --- */
+    .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(215, 159, 144, 0.2);
+        transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek scroll */
+    }
+    /* PERBAIKAN 2: CSS untuk efek scroll pada navbar */
+    .navbar.scrolled {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .nav-container {
+        max-width: 1200px; margin: 0 auto; padding: 0 20px;
+        display: flex; justify-content: space-between; align-items: center; height: 80px;
+    }
+    .logo-container {
+        display: flex; align-items: center; font-size: 1.8rem; font-weight: 800;
+        color: var(--olive); text-decoration: none;
+    }
+    .logo-container i { color: var(--burgundy); margin-right: 12px; }
+    .nav-menu { display: flex; gap: 40px; align-items: center; }
+    .nav-link {
+        text-decoration: none; color: var(--olive); font-weight: 500; font-size: 1rem;
+        padding: 12px 20px; border-radius: 25px; transition: all 0.3s ease;
+        position: relative; overflow: hidden;
+    }
+    .nav-link::before {
+        content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+        background: var(--gradient-primary); transition: left 0.3s ease; z-index: -1;
+    }
+    .nav-link:hover::before, .nav-link.active::before { left: 0; }
+    .nav-link:hover, .nav-link.active { color: var(--white); transform: translateY(-2px); }
+
+    /* PERBAIKAN 1: CSS untuk menu mobile (hamburger) */
+    .nav-toggle { display: none; cursor: pointer; }
+    .nav-toggle .bar {
+        display: block; width: 25px; height: 3px;
+        margin: 5px auto; background-color: var(--olive);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hero { padding: 160px 0 100px; background: linear-gradient(135deg, rgba(255, 249, 180, 0.3) 0%, var(--white) 100%); text-align: center; }
+    .sdg-logo { margin-bottom: 20px; }
+    .sdg-icon { width: 120px; height: 120px; border-radius: 50%; box-shadow: var(--shadow-medium); }
+    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    .highlight { color: var(--burgundy); }
+    .hero-subtitle { font-size: 1.2rem; color: var(--dark-gray); margin-bottom: 1.5rem; max-width: 700px; margin-left: auto; margin-right: auto;}
+    .sdg-overview { padding: 80px 0; }
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(142, 25, 19, 0.1); color: var(--burgundy); padding: 8px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
+    .section-header h2 { font-size: 2.5rem; }
+    .section-header p { max-width: 700px; margin: 0 auto; color: var(--dark-gray); }
+    .overview-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .overview-text h3 { font-size: 1.8rem; margin-bottom: 1rem; }
+    
+    /* PERBAIKAN 4: CSS untuk daftar kontribusi yang lebih rapi */
+    .overview-text ul { list-style: none; padding: 0; }
+    .overview-text ul li { 
+        display: flex; 
+        gap: 15px; 
+        margin-bottom: 1rem; 
+        align-items: flex-start; 
+    }
+    .overview-text ul .list-icon { 
+        color: var(--burgundy); 
+        font-size: 1.2rem;
+        flex-shrink: 0;
+        margin-top: 3px;
+    }
+    .overview-text ul .list-text {
+        flex: 1;
+    }
+    /* Akhir Perbaikan 4 */
+
+    .overview-visual img { width: 100%; border-radius: 20px; box-shadow: var(--shadow-heavy); }
+    .program-impact { padding: 80px 0; background-color: var(--light-gray); }
+    .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center; }
+    .impact-card { background: var(--white); padding: 40px 20px; border-radius: 15px; box-shadow: var(--shadow-light); }
+    .impact-icon { font-size: 3rem; color: var(--burgundy); margin-bottom: 1rem; }
+    .impact-card h3 { font-size: 2rem; margin-bottom: 0.5rem; color: var(--olive); }
+    .impact-card p { color: var(--dark-gray); }
+    .cta { padding: 80px 0; text-align: center; background: var(--burgundy); color: var(--white); }
+    .cta-content h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .cta-content p { max-width: 600px; margin: 0 auto 2rem auto; opacity: 0.9; }
+    .btn { padding: 16px 32px; border: none; border-radius: 50px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; position: relative; overflow: hidden; z-index: 1; }
+    .btn.btn-primary { background-color: var(--white); color: var(--burgundy); font-weight: bold; transition: all 0.3s ease; } /* PERBAIKAN 3: Nama class sebelumnya btn-light, diganti jadi btn-primary */
+    .btn.btn-primary:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
+    .btn-shine { position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(142, 25, 19, 0.2), transparent); transition: left 0.6s ease; }
+    .btn:hover .btn-shine { left: 100%; }
+    .footer { background: var(--olive); color: var(--white); padding: 80px 0 20px; }
+    .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-section h3 { margin-bottom: 1rem; color: var(--cream); }
+    .footer-section ul { list-style: none; padding: 0; }
+    .footer-section li { margin-bottom: 12px; }
+    .footer-section a { color: rgba(255,255,255,0.8); text-decoration: none; }
+    .footer-bottom { text-align: center; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 30px; }
+    .social-links { display: flex; gap: 16px; margin-top: 20px; }
+    .social-link { width: 50px; height: 50px; background: rgba(255, 255, 255, 0.1); border-radius: 50%; color: var(--white); text-decoration: none; transition: all 0.3s ease; display: flex !important; align-items: center !important; justify-content: center !important; }
+    .social-link:hover { background: var(--cream); color: var(--olive); transform: translateY(-3px); }
+
+    /* Responsive */
+    @media (max-width: 992px) { 
+        .overview-content { grid-template-columns: 1fr; } 
+
+        /* PERBAIKAN 1: Aturan CSS untuk Navigasi Mobile */
+        .nav-menu {
+            display: none; /* Sembunyikan menu desktop */
+            position: absolute;
+            top: 80px; /* Tepat di bawah navbar */
+            left: 0;
+            right: 0;
+            flex-direction: column; /* Tumpuk menu secara vertikal */
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            gap: 15px;
+        }
+        .nav-menu.active {
+            display: flex; /* Tampilkan menu saat aktif */
+        }
+        .nav-toggle {
+            display: block; /* Tampilkan ikon hamburger */
+        }
+        .nav-toggle.active .bar:nth-child(2) { opacity: 0; }
+        .nav-toggle.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .nav-toggle.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
+    @media (max-width: 768px) { .impact-grid, .footer-content { grid-template-columns: 1fr; } .hero h1 { font-size: 2.5rem; } }
+</style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container">
+                <i class="fas fa-utensils"></i>
+                <span>NourishNet</span>
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="about.html" class="nav-link">Tentang Kami</a>
+                <a href="program.html" class="nav-link">Program</a>
+                <a href="blog.html" class="nav-link">Edukasi</a>
+                <a href="donasi.html" class="nav-link">Donasi</a>
+                <a href="contact.html" class="nav-link">Kontak</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+                <div class="sdg-logo">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200" alt="SDG 2 Logo" class="sdg-icon">
+                </div>
+                <h1>Kontribusi NourishNet untuk <span class="highlight">SDGs 2: Zero Hunger</span></h1>
+                <p class="hero-subtitle">Mengakhiri kelaparan, mencapai ketahanan pangan, perbaikan nutrisi, dan mempromosikan pertanian berkelanjutan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sdg-overview">
+        <div class="container">
+             <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-globe"></i>
+                    <span>Tujuan Global</span>
+                </div>
+                <h2>Memahami SDGs 2: Tanpa Kelaparan</h2>
+                <p>Program "Urban Farming & Edukasi Gizi" kami secara langsung mendukung beberapa target utama dalam Tujuan Pembangunan Berkelanjutan (SDGs) nomor 2.</p>
+            </div>
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h3>Bagaimana Program Kami Berkontribusi</h3>
+                    <p>Melalui pelatihan urban farming di sekolah dan komunitas, kami tidak hanya menyediakan sumber pangan lokal tetapi juga meningkatkan pengetahuan tentang gizi seimbang dan praktik pertanian yang ramah lingkungan.</p>
+                    
+                    <ul>
+                        <li>
+                            <i class="fas fa-check-circle list-icon"></i> 
+                            <div class="list-text">
+                                <strong>Mengakhiri Kelaparan (Target 2.1):</strong> Menyediakan akses langsung ke sumber pangan segar dan bergizi bagi siswa dan komunitas sekitar.
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle list-icon"></i> 
+                            <div class="list-text">
+                                <strong>Mengakhiri Malnutrisi (Target 2.2):</strong> Mengedukasi tentang pentingnya sayuran dan buah dalam diet harian untuk memerangi stunting dan gizi buruk.
+                            </div>
+                        </li>
+                        <li>
+                             <i class="fas fa-check-circle list-icon"></i> 
+                             <div class="list-text">
+                                <strong>Sistem Pangan Berkelanjutan (Target 2.4):</strong> Mengajarkan metode pertanian kota yang tangguh, tidak merusak lingkungan, dan dapat diadaptasi di lahan terbatas.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="overview-visual">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Urban Farming di Sekolah">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-impact">
+        <div class="container">
+            <div class="section-header">
+                 <div class="section-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dampak Program</span>
+                </div>
+                <h2>Hasil Nyata dari Inisiatif Kami</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon"><i class="fas fa-school"></i></div>
+                    <h3>200+</h3>
+                    <p>Sekolah telah berpartisipasi dalam program kebun gizi.</p>
+                </div>
+                 <div class="impact-card">
+                    <div class="impact-icon"><i class="fas fa-child"></i></div>
+                    <h3>25.000+</h3>
+                    <p>Siswa telah menerima edukasi langsung mengenai gizi.</p>
+                </div>
+                 <div class="impact-card">
+                    <div class="impact-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>5 Ton</h3>
+                    <p>Sayuran telah dipanen dari kebun sekolah untuk makan siang sehat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Jadilah Bagian dari Perubahan</h2>
+                <p>Dukung program Urban Farming dan Edukasi Gizi kami untuk menciptakan generasi masa depan yang sehat dan sadar pangan. Donasi Anda membantu kami menyediakan bibit, peralatan, dan materi edukasi untuk lebih banyak sekolah.</p>
+                <a href="donasi.html" class="btn btn-primary">
+                    <i class="fas fa-heart"></i>
+                    <span>Dukung Program Ini</span>
+                    <div class="btn-shine"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="footer-bg">
+        <div class="footer-pattern"></div>
+    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section brand-section">
+                <a href="index.html" class="logo-container footer-brand">
+                    <i class="fas fa-utensils"></i>
+                    <span>NourishNet</span>
+                </a>
+                <p>Platform edukasi, advokasi, dan distribusi pangan untuk mewujudkan Indonesia bebas kelaparan melalui kolaborasi dan inovasi berkelanjutan.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/institutteknologipln" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/IT_PLN" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/itpln" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://itpln.ac.id/" target="_blank" class="social-link" aria-label="Website ITPLN"><i class="fas fa-building"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Program</h3>
+                <ul>
+                    <li><a href="program.html">Pangan Sehat Gratis</a></li>
+                    <li><a href="program.html">Urban Farming</a></li>
+                    <li><a href="program.html">Donasi Sembako</a></li>
+                    <li><a href="program.html">Bank Makanan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tentang</h3>
+                <ul>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="blog.html">Blog & Edukasi</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nourishnet.id</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+62 21 1234 5678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 NourishNet - Kelompok Auralis. Semua hak dilindungi.</p>
+                <div class="footer-links">
+                    <a href="kebijakan-privasi.html">Kebijakan Privasi</a>
+                    <a href="syarat-ketentuan.html">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navToggle = document.getElementById("nav-toggle");
+            const navMenu = document.getElementById("nav-menu");
+            const navbar = document.getElementById("navbar");
+            
+            // Logika untuk toggle menu mobile
+            if (navToggle && navMenu) {
+                navToggle.addEventListener("click", () => {
+                    navMenu.classList.toggle("active");
+                    navToggle.classList.toggle("active");
+                });
+            }
+
+            // Logika untuk efek scroll navbar
+            if (navbar) {
+                window.addEventListener("scroll", () => {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add("scrolled");
+                    } else {
+                        navbar.classList.remove("scrolled");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

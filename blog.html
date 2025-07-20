@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi & Blog - NourishNet</title>
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    /* Blog Specific Styles */
+        .hero-blog {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 249, 180, 0.2) 0%, var(--white) 100%);
+        }
+
+        .hero-blog h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--olive);
+            margin-bottom: 1rem;
+        }
+
+        .hero-blog .highlight {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-blog p {
+            font-size: 1.2rem;
+            color: rgba(61, 53, 27, 0.8);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .blog-section {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+
+        .blog-filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border: 2px solid rgba(142, 25, 19, 0.2);
+            background: transparent;
+            color: var(--olive);
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-color: var(--burgundy);
+            transform: translateY(-2px);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            border: 1px solid rgba(215, 159, 144, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .blog-category {
+            display: inline-block;
+            background: rgba(142, 25, 19, 0.1);
+            color: var(--burgundy);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .blog-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--olive);
+            margin-bottom: 12px;
+        }
+
+        .blog-meta {
+            color: rgba(61, 53, 27, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .blog-meta i {
+            margin-right: 5px;
+        }
+
+        .blog-excerpt {
+            color: rgba(61, 53, 27, 0.8);
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 24px;
+        }
+
+        .blog-readmore {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--burgundy);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .blog-readmore:hover {
+            gap: 12px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 60px;
+        }
+        
+        .page-link {
+            padding: 10px 18px;
+            border: 2px solid rgba(142, 25, 19, 0.2);
+            color: var(--olive);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .page-link:hover, .page-link.active {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-color: var(--burgundy);
+        }
+
+        @media (max-width: 768px) {
+            .hero-blog h1 { font-size: 2.5rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo-container">
+            <i class="fas fa-utensils"></i>
+            <span>NourishNet</span>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+            <a href="about.html" class="nav-link">Tentang Kami</a>
+            <a href="program.html" class="nav-link">Program</a>
+            <a href="blog.html" class="nav-link">Edukasi</a>
+            <a href="donasi.html" class="nav-link">Donasi</a>
+            <a href="contact.html" class="nav-link">Kontak</a>
+            
+            <a href="login.html" class="nav-link btn-login" id="loginBtn">Login</a>
+            
+            <div class="profile-menu" id="profileMenu" style="display: none;">
+                <div class="profile-trigger" id="profileTrigger">
+                    <div class="profile-avatar">
+                        <span id="profileInitials">U</span>
+                    </div>
+                    <span id="profileUsername">User</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="relawan.html" class="dropdown-item">
+                        <i class="fas fa-users"></i>
+                        <span>Daftar Relawan</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Keluar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+</nav>                
+
+    <main>
+        <section class="hero-blog">
+            <div class="container">
+                <h1>Edukasi & <span class="highlight">Wawasan</span></h1>
+                <p>Jelajahi artikel, tips, dan panduan dari para ahli untuk memahami lebih dalam isu kelaparan, gizi seimbang, dan pertanian berkelanjutan.</p>
+            </div>
+        </section>
+
+        <section class="blog-section">
+            <div class="container">
+                <div class="blog-filters">
+                    <button class="filter-btn active">Semua</button>
+                    <button class="filter-btn">Gizi</button>
+                    <button class="filter-btn">Pertanian</button>
+                    <button class="filter-btn">Komunitas</button>
+                    <button class="filter-btn">Inovasi</button>
+                </div>
+
+                <div class="blog-grid">
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gizi Seimbang">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-category">Gizi</span>
+                            <h3>Pentingnya Gizi Seimbang untuk Anak Usia Sekolah</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-calendar-alt"></i> 10 Juli 2024
+                            </div>
+                            <p class="blog-excerpt">Masa pertumbuhan anak adalah periode krusial. Asupan gizi yang seimbang sangat menentukan perkembangan fisik dan kognitif mereka.</p>
+                            <a href="#" class="blog-readmore">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Urban Farming">
+                        </div>
+                        <div class="blog-content">
+                            <span class="blog-category">Pertanian</span>
+                            <h3>Memulai Urban Farming di Lahan Terbatas</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-calendar-alt"></i> 08 Juli 2024
+                            </div>
+                            <p class="blog-excerpt">Keterbatasan lahan bukan halangan. Pelajari cara mudah memulai kebun sayur di rumah Anda sendiri untuk ketahanan pangan keluarga.</p>
+                            <a href="#" class="blog-readmore">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+<img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Makanan di dapur"> </div>
+<div class="blog-content">
+                            <span class="blog-category">Inovasi</span>
+                            <h3>Mengurangi Food Waste: Dari Dapur Hingga Komunitas</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-calendar-alt"></i> 05 Juli 2024
+                            </div>
+                            <p class="blog-excerpt">Setiap tahun, jutaan ton makanan terbuang sia-sia. Inilah langkah-langkah inovatif untuk mengurangi sampah makanan.</p>
+                            <a href="#" class="blog-readmore">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="blog-card">
+                        <div class="blog-image">
+<img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=800" alt="Relawan">                        </div>
+                        <div class="blog-content">
+                            <span class="blog-category">Komunitas</span>
+                            <h3>Kekuatan Relawan dalam Gerakan Pangan</h3>
+                            <div class="blog-meta">
+                                <i class="fas fa-calendar-alt"></i> 02 Juli 2024
+                            </div>
+                            <p class="blog-excerpt">Relawan adalah jantung dari setiap gerakan sosial. Lihat bagaimana kontribusi mereka menciptakan dampak yang luar biasa.</p>
+                            <a href="#" class="blog-readmore">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+        </section>
+    </main>
+    
+<footer class="footer">
+    <div class="footer-bg">
+        <div class="footer-pattern"></div>
+    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section brand-section">
+                <a href="index.html" class="logo-container footer-brand">
+                    <i class="fas fa-utensils"></i>
+                    <span>NourishNet</span>
+                </a>
+                <p>Platform edukasi, advokasi, dan distribusi pangan untuk mewujudkan Indonesia bebas kelaparan melalui kolaborasi dan inovasi berkelanjutan.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/institutteknologipln" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/IT_PLN" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/itpln" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://itpln.ac.id/" target="_blank" class="social-link" aria-label="Website ITPLN"><i class="fas fa-building"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Program</h3>
+                <ul>
+                    <li><a href="program.html">Pangan Sehat Gratis</a></li>
+                    <li><a href="program.html">Urban Farming</a></li>
+                    <li><a href="program.html">Donasi Sembako</a></li>
+                    <li><a href="program.html">Bank Makanan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tentang</h3>
+                <ul>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="blog.html">Blog & Edukasi</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nourishnet.id</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+62 21 1234 5678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 NourishNet - Kelompok Auralis. Semua hak dilindungi.</p>
+                <div class="footer-links">
+                    <a href="kebijakan-privasi.html">Kebijakan Privasi</a>
+                    <a href="syarat-ketentuan.html">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="main-script.js"></script>
+</body>
+</html>

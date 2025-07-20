@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program - NourishNet</title>
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo-container">
+            <i class="fas fa-utensils"></i>
+            <span>NourishNet</span>
+        </a>
+        <div class="nav-menu" id="nav-menu">
+            <a href="about.html" class="nav-link">Tentang Kami</a>
+            <a href="program.html" class="nav-link active">Program</a>
+            <a href="blog.html" class="nav-link">Edukasi</a>
+            <a href="donasi.html" class="nav-link">Donasi</a>
+            <a href="contact.html" class="nav-link">Kontak</a>
+            
+            <a href="login.html" class="nav-link btn-login" id="loginBtn">Login</a>
+            
+            <div class="profile-menu" id="profileMenu" style="display: none;">
+                <div class="profile-trigger" id="profileTrigger">
+                    <div class="profile-avatar" id="profileAvatar">
+                        <span id="profileInitials">U</span>
+                    </div>
+                    <span id="profileUsername">User</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <a href="relawan.html" class="dropdown-item">
+                        <i class="fas fa-users"></i>
+                        <span>Daftar Relawan</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Keluar</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-toggle" id="nav-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="animated-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="breadcrumb">
+                    <a href="index.html">Beranda</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Program</span>
+                </div>
+                <h1>Program & <span class="highlight">Inisiatif</span></h1>
+                <p>Berbagai program inovatif untuk mewujudkan Indonesia bebas kelaparan dan malnutrisi melalui pendekatan holistik dan berkelanjutan.</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Program Aktif</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Kota Terjangkau</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15K+</span>
+                        <span class="stat-label">Penerima Manfaat</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="program-filter">
+        <div class="container">
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">Semua Program</button>
+                <button class="filter-btn" data-filter="distribusi">Distribusi Pangan</button>
+                <button class="filter-btn" data-filter="edukasi">Edukasi</button>
+                <button class="filter-btn" data-filter="teknologi">Teknologi</button>
+                <button class="filter-btn" data-filter="komunitas">Komunitas</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="main-programs">
+        <div class="container">
+            <div class="programs-grid">
+                <div class="program-card featured" data-category="distribusi">
+                    <div class="program-header">
+                        <div class="program-badge">Program Unggulan</div>
+                        <div class="program-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" alt="Pangan Sehat Gratis">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <h3>Pangan Sehat Gratis</h3>
+                                <p>Distribusi makanan bergizi secara rutin</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3>Program Pangan Sehat Gratis</h3>
+                        <p>Distribusi makanan bergizi secara rutin ke panti asuhan, kampung rawan pangan, dan komunitas membutuhkan di seluruh Indonesia dengan sistem monitoring ketat.</p>
+                        <div class="program-metrics">
+                            <div class="metric">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>50+ Kota</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-users"></i>
+                                <span>15,000+ Penerima</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-calendar"></i>
+                                <span>Mingguan</span>
+                            </div>
+                        </div>
+                        <div class="program-progress">
+                            <div class="progress-info">
+                                <span>Target Tercapai</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <a href="donasi.html" class="program-btn">
+                            <span>Dukung Program</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+         <div class="program-card" data-category="edukasi">
+    <div class="program-header">
+        <div class="program-icon">
+            <i class="fas fa-seedling"></i>
+        </div>
+    </div>
+    <div class="program-image">
+        <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Urban Farming">
+    </div>
+    <div class="program-content">
+        <h3>Urban Farming & Edukasi Gizi</h3>
+        <p>Program edukasi bercocok tanam dan gizi seimbang yang dilaksanakan di sekolah-sekolah untuk menciptakan generasi sadar gizi.</p>
+        <div class="program-metrics">
+            <div class="metric">
+                <i class="fas fa-school"></i>
+                <span>200+ Sekolah</span>
+            </div>
+            <div class="metric">
+                <i class="fas fa-child"></i>
+                <span>25,000+ Siswa</span>
+            </div>
+        </div>
+        <a href="kontribusi.html" class="program-btn">
+            <span>Pelajari Lebih</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>
+
+                <div class="program-card" data-category="teknologi">
+                    <div class="program-header">
+                        <div class="program-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Donasi Online">
+                    </div>
+                    <div class="program-content">
+                        <h3>Platform Donasi Sembako</h3>
+                        <p>Platform digital yang memudahkan masyarakat berdonasi sembako dengan sistem tracking transparan dan real-time.</p>
+                        <div class="program-metrics">
+                            <div class="metric">
+                                <i class="fas fa-users"></i>
+                                <span>5,000+ Donatur</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-clock"></i>
+                                <span>24/7 Online</span>
+                            </div>
+                        </div>
+                        <a href="donasi.html" class="program-btn">
+                            <span>Mulai Donasi</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+<div class="program-card" data-category="komunitas">
+    <div class="program-header">
+        <div class="program-icon">
+            <i class="fas fa-recycle"></i>
+        </div>
+    </div>
+    
+    <div class="program-image">
+        <img src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Food Rescue">
+    </div>
+    
+    <div class="program-content">
+        <h3>Food Rescue Program</h3>
+        <p>Menyelamatkan makanan layak konsumsi dari restoran dan swalayan untuk didistribusikan kepada yang membutuhkan.</p>
+        <div class="program-metrics">
+            <div class="metric">
+                <i class="fas fa-store"></i>
+                <span>100+ Mitra</span>
+            </div>
+            <div class="metric">
+                <i class="fas fa-utensils"></i>
+                <span>10K+ Porsi/Bulan</span>
+            </div>
+        </div>
+        <a href="contact.html" class="program-btn">
+            <span>Jadi Mitra</span>
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</div>                
+<div class="program-card" data-category="komunitas">
+                    <div class="program-header">
+                        <div class="program-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                    </div>
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Bank Makanan">
+                    </div>
+                    <div class="program-content">
+                        <h3>Bank Makanan Komunitas</h3>
+                        <p>Pusat distribusi makanan di tingkat komunitas yang dikelola bersama warga setempat untuk keberlanjutan program.</p>
+                        <div class="program-metrics">
+                            <div class="metric">
+                                <i class="fas fa-home"></i>
+                                <span>25 Lokasi</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-hands-helping"></i>
+                                <span>500+ Relawan</span>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="program-btn">
+                            <span>Bergabung</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="program-card" data-category="edukasi">
+                    <div class="program-header">
+                        <div class="program-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300" alt="Kebun Sekolah">
+                    </div>
+                    <div class="program-content">
+                        <h3>Kebun Gizi Sekolah</h3>
+                        <p>Pembangunan kebun sayur di sekolah untuk mendukung program makan siang bergizi dan edukasi pertanian.</p>
+                        <div class="program-metrics">
+                            <div class="metric">
+                                <i class="fas fa-school"></i>
+                                <span>150+ Sekolah</span>
+                            </div>
+                            <div class="metric">
+                                <i class="fas fa-carrot"></i>
+                                <span>20+ Jenis Sayur</span>
+                            </div>
+                        </div>
+                        <a href="contact.html" class="program-btn">
+                            <span>Daftar Sekolah</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Dampak Program</span>
+                </div>
+                <h2>Pencapaian Nyata dari Seluruh Program</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-visual">
+                        <div class="circular-progress" data-percentage="85">
+                            <div class="progress-circle">
+                                <span class="percentage">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact-info">
+                        <h3>Target Distribusi</h3>
+                        <p>125,000+ porsi makanan berhasil disalurkan dari target 150,000 porsi tahun ini</p>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-visual">
+                        <div class="circular-progress" data-percentage="92">
+                            <div class="progress-circle">
+                                <span class="percentage">92%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact-info">
+                        <h3>Kepuasan Penerima</h3>
+                        <p>Tingkat kepuasan penerima manfaat berdasarkan survei dan feedback langsung</p>
+                    </div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-visual">
+                        <div class="circular-progress" data-percentage="78">
+                            <div class="progress-circle">
+                                <span class="percentage">78%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact-info">
+                        <h3>Jangkauan Wilayah</h3>
+                        <p>Telah menjangkau 78% dari target wilayah prioritas di seluruh Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="relawan-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <i class="fas fa-users"></i>
+                    <span>Tim Relawan</span>
+                </div>
+                <h2>Relawan Aktif NourishNet</h2>
+                <p>Para pahlawan tanpa tanda jasa yang berdedikasi untuk Indonesia bebas kelaparan</p>
+            </div>
+            <div class="relawan-grid" id="relawanGrid">
+                </div>
+            <div class="relawan-cta">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Bergabung Jadi Relawan</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-bg">
+            <div class="cta-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="cta-content">
+                <h2>Bergabunglah dengan Program Kami</h2>
+                <p>Pilih cara Anda berkontribusi untuk Indonesia bebas kelaparan. Setiap tindakan kecil dapat membuat perbedaan besar.</p>
+                <div class="cta-buttons">
+                    <a href="donasi.html" class="btn btn-light">
+                        <i class="fas fa-heart"></i>
+                        <span>Mulai Berdonasi</span>
+                        <div class="btn-shine"></div>
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-light">
+                        <i class="fas fa-users"></i>
+                        <span>Daftar Relawan</span>
+                    </a>
+                    <a href="contact.html" class="btn btn-outline-light">
+                        <i class="fas fa-handshake"></i>
+                        <span>Jadi Mitra</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<footer class="footer">
+    <div class="footer-bg">
+        <div class="footer-pattern"></div>
+    </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section brand-section">
+                <a href="index.html" class="logo-container footer-brand">
+                    <i class="fas fa-utensils"></i>
+                    <span>NourishNet</span>
+                </a>
+                <p>Platform edukasi, advokasi, dan distribusi pangan untuk mewujudkan Indonesia bebas kelaparan melalui kolaborasi dan inovasi berkelanjutan.</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/institutteknologipln" target="_blank" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/IT_PLN" target="_blank" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/itpln" target="_blank" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://itpln.ac.id/" target="_blank" class="social-link" aria-label="Website ITPLN"><i class="fas fa-building"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Program</h3>
+                <ul>
+                    <li><a href="program.html">Pangan Sehat Gratis</a></li>
+                    <li><a href="program.html">Urban Farming</a></li>
+                    <li><a href="program.html">Donasi Sembako</a></li>
+                    <li><a href="program.html">Bank Makanan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tentang</h3>
+                <ul>
+                    <li><a href="about.html">Tentang Kami</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="blog.html">Blog & Edukasi</a></li>
+                    <li><a href="contact.html">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontak</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jakarta, Indonesia</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@nourishnet.id</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+62 21 1234 5678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p>&copy; 2024 NourishNet - Kelompok Auralis. Semua hak dilindungi.</p>
+                <div class="footer-links">
+                    <a href="kebijakan-privasi.html">Kebijakan Privasi</a>
+                    <a href="syarat-ketentuan.html">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="main-script.js"></script>
+</body>
+</html>

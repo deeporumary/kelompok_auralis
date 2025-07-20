@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kebijakan Privasi - NourishNet</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #fff9b4; --salmon: #d79f90; --burgundy: #8e1913;
+            --olive: #3d351b; --white: #ffffff; --light-gray: #f8f9fa;
+            --dark-gray: #6c757d; --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        body { font-family: 'Poppins', sans-serif; }
+        .legal-hero {
+            padding: 140px 0 80px; text-align: center;
+            background: linear-gradient(135deg, rgba(255, 249, 180, 0.2) 0%, var(--white) 100%);
+        }
+        .legal-hero h1 { font-size: 3rem; color: var(--burgundy); animation: fadeInDown 1s ease-out; }
+        .legal-section { padding: 60px 20px; }
+        .legal-container {
+            max-width: 800px; margin: 0 auto; background: var(--white);
+            padding: 50px; border-radius: 20px; box-shadow: var(--shadow-medium);
+            transform: translateY(20px); opacity: 0; animation: fadeInUp 1s ease-out forwards;
+        }
+        .legal-container h2 {
+            font-size: 1.8rem; color: var(--olive); margin-top: 30px;
+            margin-bottom: 20px; border-bottom: 3px solid var(--salmon); padding-bottom: 10px;
+        }
+        .legal-container p, .legal-container li { color: var(--dark-gray); line-height: 1.9; text-align: justify; }
+        .legal-container ul { list-style-position: inside; padding-left: 10px; }
+        .accordion-item { margin-bottom: 10px; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
+        .accordion-header {
+            background: #fcfcfc; padding: 15px 20px; cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center; font-weight: 600;
+        }
+        .accordion-header i { transition: transform 0.3s ease; }
+        .accordion-content { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+        .accordion-item.active .accordion-header i { transform: rotate(180deg); }
+        .accordion-item.active .accordion-content { max-height: 200px; padding: 15px 20px; }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo-container"><i class="fas fa-utensils"></i><span>NourishNet</span></a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Beranda</a>
+                <a href="about.html" class="nav-link">Tentang Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="legal-hero">
+        <h1>Kebijakan Privasi</h1>
+    </header>
+
+    <section class="legal-section">
+        <div class="legal-container">
+            <p><strong>Tanggal Efektif:</strong> 16 Juli 2025</p>
+            <p>Kami di NourishNet menghargai privasi Anda. Kebijakan ini menjelaskan jenis informasi yang kami kumpulkan dan bagaimana kami menggunakannya.</p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>1. Informasi Apa yang Kami Kumpulkan?</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Kami mengumpulkan informasi yang Anda berikan langsung, seperti nama, email, dan nomor telepon saat mendaftar atau berdonasi. Kami juga dapat mengumpulkan data teknis seperti alamat IP dan jenis browser secara otomatis.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>2. Bagaimana Kami Menggunakan Informasi Anda?</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Informasi Anda digunakan untuk memproses donasi, mengelola akun, mengirimkan pembaruan penting, dan meningkatkan layanan kami. Kami tidak akan pernah menjual informasi pribadi Anda kepada pihak ketiga.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>3. Keamanan Data</span><i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p>Kami menerapkan langkah-langkah keamanan standar industri untuk melindungi data Anda. Namun, tidak ada metode transmisi data di internet yang 100% aman, sehingga kami tidak dapat menjamin keamanan mutlak.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', () => {
+                    const currentlyActive = document.querySelector('.accordion-item.active');
+                    if (currentlyActive && currentlyActive !== item) {
+                        currentlyActive.classList.remove('active');
+                    }
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
