@@ -1,22 +1,28 @@
 <?php
-// Memulai sesi untuk mengakses variabel session seperti $_SESSION['role']
+// PASTIKAN INI ADALAH BARIS 1, TIDAK ADA APAPUN DI ATASNYA
 session_start(); 
 
 // --- PENGATURAN HEADER ---
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); 
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 
-// Handle request pre-flight dari browser
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     http_response_code(200);
     exit();
 }
 
-// --- PEMERIKSAAN PERAN (ROLE) ADMIN ---
-// Ini adalah bagian keamanan terpenting.
-// Hanya admin yang bisa melanjutkan jika metodenya POST, PUT, atau DELETE.
+// GANTI BLOK KODE IF YANG LAMA DENGAN INI
+if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'DELETE') {
+    // Periksa apakah sesi 'role' ada DAN nilainya adalah 'admin'
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        http_response_code(403); // Kode status 'Forbidden'
+        echo json_encode(["success" => false, "message" => "Akses ditolak. Hanya admin yang dapat melakukan tindakan ini."]);
+        exit(); // Hentikan eksekusi
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST' || $_SERVER['REQUEST_METHOD'] == 'PUT' || $_SERVER['REQUEST_METHOD'] == 'DELETE') {
     // Periksa apakah sesi 'role' ada dan nilainya adalah 'admin'
     if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
